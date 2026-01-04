@@ -91,6 +91,22 @@ const CATEGORIES = [
     }
 ];
 
+interface Product {
+    image: string;
+    name: string;
+    price: number;
+    category: string;
+    badge?: string;
+    gradientOverlay?: boolean;
+}
+
+interface Category {
+    image: string;
+    hashtag: string;
+    title: string;
+    gradient?: string;
+}
+
 function NoiseOverlay() {
     return (
         <div className="fixed inset-0 pointer-events-none z-[100] opacity-[0.03] mix-blend-overlay">
@@ -104,7 +120,7 @@ function NoiseOverlay() {
     );
 }
 
-function ProductCard({ image, name, price, category, badge, gradientOverlay }: any) {
+function ProductCard({ image, name, price, category, badge, gradientOverlay }: Product) {
     return (
         <motion.div variants={CHILD_VARIANTS} className="group relative cursor-pointer">
             <div className="relative overflow-hidden rounded-[2rem] bg-secondary mb-4 aspect-[3/4]">
@@ -141,7 +157,7 @@ function ProductCard({ image, name, price, category, badge, gradientOverlay }: a
     );
 }
 
-function CategoryCard({ image, hashtag, title, gradient }: any) {
+function CategoryCard({ image, hashtag, title, gradient }: Category) {
     return (
         <motion.div
             variants={CHILD_VARIANTS}
@@ -172,7 +188,7 @@ function CategoryCard({ image, hashtag, title, gradient }: any) {
 }
 
 export function StreexLanding() {
-    const containerRef = useRef(null);
+    const containerRef = useRef<HTMLDivElement>(null);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const { scrollYProgress } = useScroll({
         target: containerRef,
