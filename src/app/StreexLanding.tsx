@@ -1,9 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { ArrowRight, Instagram, Twitter, Facebook, Sparkles, Zap, TrendingUp, Music, ArrowUpRight, Heart, ShoppingBag } from 'lucide-react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
+import { motion, useScroll, useTransform, AnimatePresence, Variants } from 'motion/react';
 import { Navigation } from './components/Navigation';
 
-const COMPONENT_VARIANTS = {
+const COMPONENT_VARIANTS: Variants = {
     hidden: { opacity: 0, y: 40 },
     visible: {
         opacity: 1,
@@ -12,7 +12,7 @@ const COMPONENT_VARIANTS = {
     }
 };
 
-const STAGGER_VARIANTS = {
+const STAGGER_VARIANTS: Variants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
@@ -20,7 +20,7 @@ const STAGGER_VARIANTS = {
     }
 };
 
-const CHILD_VARIANTS = {
+const CHILD_VARIANTS: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
         opacity: 1,
